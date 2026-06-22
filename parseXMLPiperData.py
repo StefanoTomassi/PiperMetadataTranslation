@@ -116,3 +116,48 @@ def parse_entities(xml_file: str) -> list:
 
     return entities
 
+def store_autoSet_ids(entities):
+    """
+    Once the entity with name Auto is found, the ids of the set present in auto are stored in a list.
+    Input: list containing PiperEntity objects
+    Output: list object containing the ids
+
+    """
+    for entity in entities:
+        if entity.name == 'Auto':
+            IDS = entity.id
+            IDS = IDS.split()
+    return IDS
+
+def create_PiperEntities_from_autoSet(AutoIDS, PartSets):
+    piper_entities = []
+
+    # Create a dictionary for fast lookup: {set_id: PartSets_object}
+    partsets_by_id = {partset.id: partset for partset in PartSets}
+
+    for auto_id in AutoIDS:
+        if auto_id in partsets_by_id:
+            matched_partset = partsets_by_id[auto_id]
+
+            entity = dataClasses.PiperEntity(
+                name=matched_partset.name,
+                keyword='*SET_PART_LIST_TITLE',
+                id=auto_id
+            )
+            piper_entities.append(entity)
+
+    return piper_entities
+
+def substitute_AutoEntities_with_singleEntity(old_entities, new_entities):
+    EntitiesForJoints = []
+    SkinEntities = []
+    for old_entity in old_entities:
+        if old_entity.name == 'Auto':
+            EntitiesForJoints.extend(new_entities)
+        else:
+            SkinEntities.append(old_entity)
+
+    return SkinEntities, EntitiesForJoints
+
+def create_joints_for_hypermesh(Frames, Joints, PiperJointEntities):
+    return 0 

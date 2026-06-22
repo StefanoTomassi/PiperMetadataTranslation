@@ -2,6 +2,17 @@ from dataclasses import dataclass
 from typing import Tuple
 
 @dataclass
+class DynaPartSet:
+    name: str
+    id: int
+    parts: list
+
+@dataclass
+class DynaCoordinateSys:
+    name: str
+    id: int
+    node: int  
+@dataclass
 class PiperEntity:
     name: str
     keyword: str
@@ -36,3 +47,4 @@ class PiperJointRecord:
     entity_master: PiperJointEntityRef
     entity_slave: PiperJointEntityRef
     dof: Tuple[int, int, int, int, int, int]
+
