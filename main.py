@@ -4,7 +4,7 @@ import dynaTranslationFunction as dynaTrasl
 import chooseYourFolderAndFile as chooser
 import dataClasses
 import LSTCFileMetadata as LSTC
-
+from writeTxtFile import write_tree_file
 #Selection of the files
 file_path = chooser.choose_file("Select the Piper XML file to parse", [("XML files", "*.xml"), ("All files", "*.*")])
 output_folder = chooser.choose_folder("Select the output folder for the parsed file")
@@ -26,10 +26,12 @@ AutoIDs = store_autoSet_ids(entitiesFromPiper)
 PiperEntitiesAuto = create_PiperEntities_from_autoSet(AutoIDs, PartSets)
 SkinEntities, EntitiesForJoints = substitute_AutoEntities_with_singleEntity(entitiesFromPiper, PiperEntitiesAuto)
 
-limbs = LSTC.create_limbs(joints)
+limbsOrig = LSTC.create_limbs(EntitiesForJoints)
 limbs = []
 for joint in joints:
     actual_part = LSTC.extract_parts_for_current_joint(joint,PartSets)
     actual_limb = LSTC.build_lstc_limb_from_piper_joint(joint, actual_part)
     limbs.append(actual_limb)
-print(limbs)
+dictionary_children, dictionary_parents = LSTC.build_parent_children_dict(EntitiesForJoints, joints)
+print(limbsOrig)
+write_tree_file('C:/Users/d069056/Desktop/trial.txt', "VIVA+201",limbs, dictionary_children , dictionary_parents, [160, 0, 450])

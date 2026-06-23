@@ -1,6 +1,7 @@
 from dataclasses import dataclass
-from typing import Tuple, List
-from dataClasses import PiperJointRecord, LSTCLimb, LSTCChildrenEntity, LSTCCoordinatePointSystem, LSTCParentEntity
+from typing import Tuple, List, Dict
+from collections import defaultdict
+from dataClasses import DynaPartSet, PiperJointRecord, PiperEntity, LSTCLimb, LSTCChildrenEntity, LSTCCoordinatePointSystem, LSTCParentEntity
 def create_limbs(PiperJoints):
     limbs = []
     for Joint in PiperJoints:
@@ -9,7 +10,7 @@ def create_limbs(PiperJoints):
 
 def build_lstc_limb_from_piper_joint(
     joint: PiperJointRecord,
-    part: List = None
+    part: DynaPartSet = None
 ) -> LSTCLimb:
     """
     Create an LSTCLimb from a PiperJointRecord.
@@ -44,7 +45,7 @@ def build_lstc_limb_from_piper_joint(
     )
 
     limb = LSTCLimb(
-        name=joint.name,
+        name=part.name,
         cps=cps,
         lock=tuple(int(not x) for x in joint.dof[3:6]),
         lcid=(0, 0, 0),
@@ -63,4 +64,58 @@ def extract_parts_for_current_joint(PiperJoint, parts):
         else:
             continue
     return 0
-    
+
+def build_parent_children_dict(
+    entities: List[PiperEntity],
+    joints: List[PiperJointRecord],
+) -> Dict[str, List[str]]:
+    """
+    Build a dictionary:
+        key   -> parent entity name (joint master)
+        value -> list of child entity names (joint slaves)
+    """
+
+    entity_names = {entity.name for entity in entities}
+    parent_children = defaultdict(list)
+    for joint in joints:
+        parent_name = joint.entity_master.name
+        child_name = joint.entity_slave.name
+
+        if parent_name not in entity_names:
+            raise ValueError(
+                f"Master entity '{parent_name}' from joint '{joint.name}' "
+                f"is not present in entities list."
+            )
+
+        if child_name not in entity_names:
+            raise ValueError(
+                f"Slave entity '{child_name}' from joint '{joint.name}' "
+                f"is not present in entities list."
+            )
+
+        if child_name not in parent_children[parent_name]:
+            parent_children[parent_name].append(child_name)
+
+
+    children_parent = defaultdict(list)
+    for joint in joints:
+        parent_name = joint.entity_master.name
+        child_name = joint.entity_slave.name
+
+        if parent_name not in entity_names:
+            raise ValueError(
+                f"Master entity '{parent_name}' from joint '{joint.name}' "
+                f"is not present in entities list."
+            )
+
+        if child_name not in entity_names:
+            raise ValueError(
+                f"Slave entity '{child_name}' from joint '{joint.name}' "
+                f"is not present in entities list."
+            )
+
+        if parent_name not in children_parent[child_name]:
+            children_parent[child_name].append(parent_name)
+            
+    return dict(parent_children), dict(children_parent)
+
