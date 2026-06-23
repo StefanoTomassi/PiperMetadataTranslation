@@ -12,6 +12,31 @@ class DynaCoordinateSys:
     name: str
     id: int
     node: int  
+
+@dataclass
+class LSTCCoordinatePointSystem:
+    node1: int
+    node2: int
+
+@dataclass
+class LSTCChildrenEntity:
+    name: str
+
+@dataclass
+class LSTCParentEntity:
+    name: str
+    node: int
+
+@dataclass
+class LSTCLimb:
+    name: str
+    cps: LSTCCoordinatePointSystem
+    lock: Tuple[int, int, int]
+    lcid: Tuple[int, int, int]
+    part: list
+    children: LSTCChildrenEntity
+    parent: LSTCParentEntity
+
 @dataclass
 class PiperEntity:
     name: str
@@ -29,17 +54,14 @@ class PiperKeywordRef:
     kw: str
     id: int
 
-
 @dataclass
-class FrameRef:
+class PiperFrameRef:
     keyword: PiperKeywordRef
-
 
 @dataclass
 class PiperJointEntityRef:
     name: str
-    frame: FrameRef
-
+    frame: PiperFrameRef
 
 @dataclass
 class PiperJointRecord:
@@ -47,4 +69,3 @@ class PiperJointRecord:
     entity_master: PiperJointEntityRef
     entity_slave: PiperJointEntityRef
     dof: Tuple[int, int, int, int, int, int]
-

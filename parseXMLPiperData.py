@@ -40,7 +40,7 @@ def parse_joint_entity(elem: ET.Element) -> dataClasses.PiperJointEntityRef:
 
     return dataClasses.PiperJointEntityRef(
         name=name,
-        frame=dataClasses.FrameRef(
+        frame=dataClasses.PiperFrameRef(
             keyword=dataClasses.PiperKeywordRef(
                 kw=kw,
                 id=int(id_text.strip())
@@ -158,6 +158,3 @@ def substitute_AutoEntities_with_singleEntity(old_entities, new_entities):
             SkinEntities.append(old_entity)
 
     return SkinEntities, EntitiesForJoints
-
-def create_joints_for_hypermesh(Frames, Joints, PiperJointEntities):
-    return 0 
