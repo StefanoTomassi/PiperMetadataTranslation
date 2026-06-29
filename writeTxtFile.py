@@ -28,7 +28,7 @@ def _fmt_parent_from_dict(
 def _fmt_part(part_list: list) -> str:
     if not part_list:
         return "0"
-    return ", ".join(str(pid) for pid in part_list)
+    return ",\n".join(f"      {pid}" for pid in part_list)
 
 
 def _unique_limbs_by_name(limbs: List[LSTCLimb]) -> List[LSTCLimb]:
@@ -50,7 +50,7 @@ def limb_to_tree_block(
     return (
         f"  %{limb.name} {{\n"
         f"    %cps {{\n"
-        f"      {limb.cps.node1}, {limb.cps.node2}\n"
+        f"      {limb.cps.node1}, 0, 1\n"
         f"    }}\n"
         f"    %lock {{ {limb.lock[0]}, {limb.lock[1]}, {limb.lock[2]} }}\n"
         f"    %lcid {{ {limb.lcid[0]}, {limb.lcid[1]}, {limb.lcid[2]} }}\n"
@@ -78,7 +78,7 @@ def occupant_to_tree_text(
 ) -> str:
     unique_limbs = _unique_limbs_by_name(limbs)
 
-    limb_names = ", ".join(limb.name for limb in unique_limbs)
+    limb_names = ",\n".join(f"    {limb.name}" for limb in unique_limbs)
     limb_blocks = "\n".join(
         limb_to_tree_block(limb, parent_children_dict, children_parent_dict)
         for limb in unique_limbs
@@ -88,7 +88,9 @@ def occupant_to_tree_text(
         "%occinfo\n"
         "%occupant {\n"
         f"  %name {occupant_name}\n"
-        f"  %limbs {{ {limb_names} }}\n"
+        "  %limbs {\n"
+        f"{limb_names}\n"
+        "  }\n"
         "  %globals {\n"
         f"    %h_point {{ {h_point[0]}, {h_point[1]}, {h_point[2]} }}\n"
         f"    %rotation {{ {rotation[0]}, {rotation[1]}, {rotation[2]} }}\n"

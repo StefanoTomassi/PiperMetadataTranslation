@@ -20,18 +20,17 @@ frames, history_ids = dynaTrasl.get_dyna_coordinates_list(CoordsCards)
 landmarks = parse_landmarks_lxml(file_path)
 joints = parse_joints(file_path)
 entitiesFromPiper = parse_entities(file_path)
-
 #Elaboration of Piper entities
 AutoIDs = store_autoSet_ids(entitiesFromPiper)
 PiperEntitiesAuto = create_PiperEntities_from_autoSet(AutoIDs, PartSets)
 SkinEntities, EntitiesForJoints = substitute_AutoEntities_with_singleEntity(entitiesFromPiper, PiperEntitiesAuto)
 
-limbsOrig = LSTC.create_limbs(EntitiesForJoints)
+#limbsOrig = LSTC.create_limbs(EntitiesForJoints)
 limbs = []
 for joint in joints:
     actual_part = LSTC.extract_parts_for_current_joint(joint,PartSets)
     actual_limb = LSTC.build_lstc_limb_from_piper_joint(joint, actual_part)
     limbs.append(actual_limb)
 dictionary_children, dictionary_parents = LSTC.build_parent_children_dict(EntitiesForJoints, joints)
-print(limbsOrig)
-write_tree_file('C:/Users/d069056/Desktop/trial.txt', "VIVA+201",limbs, dictionary_children , dictionary_parents, [160, 0, 450])
+limbs = LSTC.extract_limb_without_any_children(limbs,joints,PartSets)
+write_tree_file(f'{output_folder}/LSTCMETADATA.txt', "VIVA+trial",limbs, dictionary_children , dictionary_parents, [160, 0, 450])
