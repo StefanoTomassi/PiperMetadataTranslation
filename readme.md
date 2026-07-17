@@ -9,7 +9,7 @@ The first draft of the repo uses the VIVA+ v2 human body model (HBM).
 - Select the file containing the parts (in LS-DYna keyword) used for the PIPER metadata (PIPER_entities_vivaplus.key)
 - Select the file containing the joints entities (common/vivaplus-joints.k)
 - Copy and paste the file to the keyword file of VIVA HBM
-  
+- Without running it, you can check the results from the file LSTCMETADATA.txt
 The repository is under construction, just a first version has been implemented. The main issue that occur during the translation process are the following:
 - Piper works for joint movements, with slave and master entities. LSTC works for limb movements, with children and parents elements. If a PIPER entity is a slave in more than one joint, this entity cannot be recalled as limb with more than one parent.
 - Soft tissues in piper are explicitely stated. In LSTC, the soft tissues parts must stay in the limb. This diversity in definitions does not allow fully automatic translation at the moment.

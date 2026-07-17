@@ -1,0 +1,977 @@
+%occinfo
+%occupant {
+  %name VIVA+trial
+  %limbs {
+    Pelvic_skeleton,
+    Right_femur,
+    Left_femur,
+    Right_tibia,
+    Left_tibia,
+    Right_clavicle,
+    Left_clavicle,
+    Right_scapula,
+    Left_scapula,
+    Right_humerus,
+    Left_humerus,
+    Fifth_lumbar_vertebra,
+    Fourth_lumbar_vertebra,
+    Third_lumbar_vertebra,
+    Second_lumbar_vertebra,
+    First_lumbar_vertebra,
+    Twelfth_thoracic_vertebra,
+    Eleventh_thoracic_vertebra,
+    Tenth_thoracic_vertebra,
+    Ninth_thoracic_vertebra,
+    Eighth_thoracic_vertebra,
+    Seventh_thoracic_vertebra,
+    Sixth_thoracic_vertebra,
+    Fifth_thoracic_vertebra,
+    Fourth_thoracic_vertebra,
+    Third_thoracic_vertebra,
+    Second_thoracic_vertebra,
+    First_thoracic_vertebra,
+    Seventh_cervical_vertebra,
+    Sixth_cervical_vertebra,
+    Fifth_cervical_vertebra,
+    Fourth_cervical_vertebra,
+    Third_cervical_vertebra,
+    Axis,
+    Left_radius,
+    Right_radius,
+    Right_foot_skeleton,
+    Left_foot_skeleton,
+    Skeleton_of_rib_cage,
+    Right_ulna,
+    Left_ulna,
+    Atlas
+  }
+  %globals {
+    %h_point { 160, 0, 450 }
+    %rotation { 0.0, 1.0, 0.0 }
+    %vertical { 0.0, 0.0, 1.0 }
+  }
+  %Pelvic_skeleton {
+    %cps {
+      7591110, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            601011,
+      601012,
+      601021,
+      601022,
+      601031,
+      601032,
+      601041,
+      601042,
+      601051,
+      601052,
+      601053,
+      651011,
+      651012,
+      651021,
+      651022,
+      651031,
+      651032,
+      651041,
+      651042,
+      651051,
+      651052
+    }
+    %children {
+      Right_femur,
+      Left_femur,
+      Fifth_lumbar_vertebra
+    }
+    %parent {
+      0, 0
+    }
+  }
+  %Right_femur {
+    %cps {
+      7591190, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            751111,
+      751112,
+      751114,
+      751121,
+      751122,
+      751131,
+      751132,
+      751141,
+      751142,
+      751151,
+      751152,
+      751161,
+      751171,
+      751172,
+      751181,
+      751182,
+      751184,
+      751191,
+      751192,
+      751201,
+      751202
+    }
+    %children {
+      Right_tibia
+    }
+    %parent {
+      Pelvic_skeleton, 7591190
+    }
+  }
+  %Left_femur {
+    %cps {
+      7091190, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            701111,
+      701112,
+      701114,
+      701121,
+      701122,
+      701131,
+      701132,
+      701141,
+      701142,
+      701151,
+      701152,
+      701161,
+      701171,
+      701172,
+      701181,
+      701182,
+      701184,
+      701191,
+      701192,
+      701201,
+      701202
+    }
+    %children {
+      Left_tibia
+    }
+    %parent {
+      Pelvic_skeleton, 7091190
+    }
+  }
+  %Right_tibia {
+    %cps {
+      7594110, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            751411,
+      751412,
+      751414,
+      751421,
+      751431,
+      751432,
+      751433,
+      751434
+    }
+    %children {
+      Right_foot_skeleton
+    }
+    %parent {
+      Right_femur, 7594110
+    }
+  }
+  %Left_tibia {
+    %cps {
+      7094110, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            701411,
+      701412,
+      701414,
+      701421,
+      701431,
+      701432,
+      701433,
+      701434
+    }
+    %children {
+      Left_foot_skeleton
+    }
+    %parent {
+      Left_femur, 7094110
+    }
+  }
+  %Right_clavicle {
+    %cps {
+      3591121, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            351101,
+      351102,
+      351113,
+      351123
+    }
+    %children {
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Right_scapula, 3591121
+    }
+  }
+  %Left_clavicle {
+    %cps {
+      3091121, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            301101,
+      301102,
+      301113,
+      301123
+    }
+    %children {
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Right_scapula, 3091121
+    }
+  }
+  %Right_scapula {
+    %cps {
+      3591310, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            351201,
+      351202
+    }
+    %children {
+      Right_humerus,
+      Right_clavicle,
+      Left_clavicle
+    }
+    %parent {
+      0, 0
+    }
+  }
+  %Left_scapula {
+    %cps {
+      3091310, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            301201,
+      301202
+    }
+    %children {
+      Left_humerus
+    }
+    %parent {
+      0, 0
+    }
+  }
+  %Right_humerus {
+    %cps {
+      3591411, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            351309,
+      351311,
+      351312,
+      351313,
+      351321,
+      351331,
+      351332,
+      351333
+    }
+    %children {
+      Right_ulna
+    }
+    %parent {
+      Right_scapula, 3591411
+    }
+  }
+  %Left_humerus {
+    %cps {
+      3091411, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            301309,
+      301311,
+      301312,
+      301313,
+      301321,
+      301331,
+      301332,
+      301333
+    }
+    %children {
+      Left_ulna
+    }
+    %parent {
+      Left_scapula, 3091411
+    }
+  }
+  %Fifth_lumbar_vertebra {
+    %cps {
+      5091055, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            501051,
+      501052
+    }
+    %children {
+      Fourth_lumbar_vertebra
+    }
+    %parent {
+      Pelvic_skeleton, 5091055
+    }
+  }
+  %Fourth_lumbar_vertebra {
+    %cps {
+      5091045, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            501041,
+      501042
+    }
+    %children {
+      Third_lumbar_vertebra
+    }
+    %parent {
+      Fifth_lumbar_vertebra, 5091045
+    }
+  }
+  %Third_lumbar_vertebra {
+    %cps {
+      5091035, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            501031,
+      501032
+    }
+    %children {
+      Second_lumbar_vertebra
+    }
+    %parent {
+      Fourth_lumbar_vertebra, 5091035
+    }
+  }
+  %Second_lumbar_vertebra {
+    %cps {
+      5091025, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            501021,
+      501022
+    }
+    %children {
+      First_lumbar_vertebra
+    }
+    %parent {
+      Third_lumbar_vertebra, 5091025
+    }
+  }
+  %First_lumbar_vertebra {
+    %cps {
+      5091015, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            501011,
+      501012
+    }
+    %children {
+      Twelfth_thoracic_vertebra
+    }
+    %parent {
+      Second_lumbar_vertebra, 5091015
+    }
+  }
+  %Twelfth_thoracic_vertebra {
+    %cps {
+      4091125, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401121,
+      401122
+    }
+    %children {
+      Eleventh_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      First_lumbar_vertebra, 4091125
+    }
+  }
+  %Eleventh_thoracic_vertebra {
+    %cps {
+      4091115, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401111,
+      401112
+    }
+    %children {
+      Tenth_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Twelfth_thoracic_vertebra, 4091115
+    }
+  }
+  %Tenth_thoracic_vertebra {
+    %cps {
+      4091105, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401101,
+      401102
+    }
+    %children {
+      Ninth_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Eleventh_thoracic_vertebra, 4091105
+    }
+  }
+  %Ninth_thoracic_vertebra {
+    %cps {
+      4091095, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401091,
+      401092
+    }
+    %children {
+      Eighth_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Tenth_thoracic_vertebra, 4091095
+    }
+  }
+  %Eighth_thoracic_vertebra {
+    %cps {
+      4091085, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401081,
+      401082
+    }
+    %children {
+      Seventh_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Ninth_thoracic_vertebra, 4091085
+    }
+  }
+  %Seventh_thoracic_vertebra {
+    %cps {
+      4091075, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401071,
+      401072
+    }
+    %children {
+      Sixth_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Eighth_thoracic_vertebra, 4091075
+    }
+  }
+  %Sixth_thoracic_vertebra {
+    %cps {
+      4091065, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401061,
+      401062
+    }
+    %children {
+      Fifth_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Seventh_thoracic_vertebra, 4091065
+    }
+  }
+  %Fifth_thoracic_vertebra {
+    %cps {
+      4091055, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401051,
+      401052
+    }
+    %children {
+      Fourth_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Sixth_thoracic_vertebra, 4091055
+    }
+  }
+  %Fourth_thoracic_vertebra {
+    %cps {
+      4091045, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401041,
+      401042
+    }
+    %children {
+      Third_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Fifth_thoracic_vertebra, 4091045
+    }
+  }
+  %Third_thoracic_vertebra {
+    %cps {
+      4091035, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401031,
+      401032
+    }
+    %children {
+      Second_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Fourth_thoracic_vertebra, 4091035
+    }
+  }
+  %Second_thoracic_vertebra {
+    %cps {
+      4091025, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401021,
+      401022
+    }
+    %children {
+      First_thoracic_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Third_thoracic_vertebra, 4091025
+    }
+  }
+  %First_thoracic_vertebra {
+    %cps {
+      8381789, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            401011,
+      401012
+    }
+    %children {
+      Seventh_cervical_vertebra,
+      Skeleton_of_rib_cage
+    }
+    %parent {
+      Second_thoracic_vertebra, 8381789
+    }
+  }
+  %Seventh_cervical_vertebra {
+    %cps {
+      8381679, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            201071,
+      201072
+    }
+    %children {
+      Sixth_cervical_vertebra
+    }
+    %parent {
+      First_thoracic_vertebra, 8381679
+    }
+  }
+  %Sixth_cervical_vertebra {
+    %cps {
+      8381569, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            201061,
+      201062
+    }
+    %children {
+      Fifth_cervical_vertebra
+    }
+    %parent {
+      Seventh_cervical_vertebra, 8381569
+    }
+  }
+  %Fifth_cervical_vertebra {
+    %cps {
+      8381459, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            201051,
+      201052
+    }
+    %children {
+      Fourth_cervical_vertebra
+    }
+    %parent {
+      Sixth_cervical_vertebra, 8381459
+    }
+  }
+  %Fourth_cervical_vertebra {
+    %cps {
+      8381349, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            201041,
+      201042
+    }
+    %children {
+      Third_cervical_vertebra
+    }
+    %parent {
+      Fifth_cervical_vertebra, 8381349
+    }
+  }
+  %Third_cervical_vertebra {
+    %cps {
+      8381239, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            201031,
+      201032
+    }
+    %children {
+      Axis
+    }
+    %parent {
+      Fourth_cervical_vertebra, 8381239
+    }
+  }
+  %Axis {
+    %cps {
+      8381129, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            201021,
+      201022
+    }
+    %children {
+      Atlas
+    }
+    %parent {
+      Third_cervical_vertebra, 8381129
+    }
+  }
+  %Left_radius {
+    %cps {
+      3091600, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            301509,
+      301511,
+      301512,
+      301513,
+      301521,
+      301531,
+      301532,
+      301533
+    }
+    %children {
+      Left_ulna
+    }
+    %parent {
+      0, 0
+    }
+  }
+  %Right_radius {
+    %cps {
+      3591600, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            351509,
+      351511,
+      351512,
+      351513,
+      351521,
+      351531,
+      351532,
+      351533
+    }
+    %children {
+      Right_ulna
+    }
+    %parent {
+      0, 0
+    }
+  }
+  %Right_foot_skeleton {
+    %cps {
+      7594110, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            751701,
+      751703,
+      754111,
+      754113,
+      754133
+    }
+    %children {
+      0
+    }
+    %parent {
+      Right_tibia, 7594110
+    }
+  }
+  %Left_foot_skeleton {
+    %cps {
+      7094110, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            701701,
+      701703,
+      704111,
+      704113,
+      704133
+    }
+    %children {
+      0
+    }
+    %parent {
+      Left_tibia, 7094110
+    }
+  }
+  %Skeleton_of_rib_cage {
+    %cps {
+      3591121, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            403013,
+      403014,
+      403015,
+      403023,
+      403024,
+      403025,
+      403033,
+      403034,
+      403035,
+      403043,
+      403044,
+      403045,
+      403053,
+      403054,
+      403055,
+      403063,
+      403064,
+      403065,
+      403073,
+      403074,
+      403075,
+      403083,
+      403084,
+      403085,
+      403093,
+      403094,
+      403095,
+      403103,
+      403104,
+      403105,
+      403113,
+      403114,
+      403115,
+      403123,
+      403124,
+      403125,
+      403501,
+      403502,
+      403503,
+      453013,
+      453014,
+      453015,
+      453023,
+      453024,
+      453025,
+      453033,
+      453034,
+      453035,
+      453043,
+      453044,
+      453045,
+      453053,
+      453054,
+      453055,
+      453063,
+      453064,
+      453065,
+      453073,
+      453074,
+      453075,
+      453083,
+      453084,
+      453085,
+      453093,
+      453094,
+      453095,
+      453103,
+      453104,
+      453105,
+      453113,
+      453114,
+      453115,
+      453123,
+      453124,
+      453125,
+      453503,
+      453601,
+      453602,
+      403601,
+      403602
+    }
+    %children {
+      0
+    }
+    %parent {
+      Right_clavicle, 3591121
+    }
+  }
+  %Right_ulna {
+    %cps {
+      3591411, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            351409,
+      351411,
+      351412,
+      351413,
+      351421,
+      351431,
+      351432,
+      351433
+    }
+    %children {
+      0
+    }
+    %parent {
+      Right_humerus, 3591411
+    }
+  }
+  %Left_ulna {
+    %cps {
+      3091411, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            301409,
+      301411,
+      301412,
+      301413,
+      301421,
+      301431,
+      301432,
+      301433
+    }
+    %children {
+      0
+    }
+    %parent {
+      Left_humerus, 3091411
+    }
+  }
+  %Atlas {
+    %cps {
+      8381129, 0, 1
+    }
+    %lock { 0, 0, 0 }
+    %lcid { 0, 0, 0 }
+    %part {
+            201011,
+      201012
+    }
+    %children {
+      0
+    }
+    %parent {
+      Axis, 8381129
+    }
+  }
+}
+%endoccinfo
